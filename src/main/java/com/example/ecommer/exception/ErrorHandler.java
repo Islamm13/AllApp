@@ -1,0 +1,30 @@
+package com.example.ecommer.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class ErrorHandler {
+
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse handler(NotFoundException e){
+        return ErrorResponse.builder()
+                .message(e.getMessage())
+                .build();
+        }
+
+
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorResponse handler(Exception e){
+        return ErrorResponse.builder()
+                .message("Please try again later")
+                .build();
+    }
+}
+
+
+

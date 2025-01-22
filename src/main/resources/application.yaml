@@ -1,11 +1,11 @@
 spring:
   application:
-    name: IM-Product
+    name: ECommer
   datasource:
-    url: jdbc:mysql://localhost:3306/product_db
-    username: root
+    url: jdbc:postgresql://localhost:3333/product_db
+    username: postgres
     password: password
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate

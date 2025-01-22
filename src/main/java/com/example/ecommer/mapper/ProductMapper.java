@@ -2,6 +2,7 @@ package com.example.ecommer.mapper;
 
 import com.example.ecommer.entity.ProductEntity;
 import com.example.ecommer.model.request.CreateProductRequest;
+import com.example.ecommer.model.response.ProductResponse;
 
 public enum ProductMapper {
 
@@ -15,4 +16,14 @@ public enum ProductMapper {
                 .quantity(createProductRequest.getQuantity())
                 .build();
     }
+
+   public ProductResponse buildProductResponse(ProductEntity productEntity){
+        return ProductResponse.builder()
+                .id(productEntity.getId())
+                .name(productEntity.getName())
+                .description(productEntity.getDescription())
+                .price(productEntity.getPrice())
+                .quantity(productEntity.getQuantity())
+                .build();
+   }
 }
